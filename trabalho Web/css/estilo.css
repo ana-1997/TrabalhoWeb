@@ -1,0 +1,48 @@
+/*1ºLimpando as formatações padrões*/
+/*2ºcolocando estilo no cabeçalho*/
+/*dopois foi definido os padroes da tabela*/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-size: 1em;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    background: rgb(168, 167, 167);
+}
+
+#cabecalho{
+    background-color: cadetblue;
+    padding: 3px;
+    text-align: center;
+}
+
+#logo{
+    
+    padding: 3px;
+
+}
+
+#text{
+    text-align: center;
+}
+
+
+table,
+th,
+td {
+  border: 1px solid;
+}
+
+table {
+    width: 80%;
+    margin: 50px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}

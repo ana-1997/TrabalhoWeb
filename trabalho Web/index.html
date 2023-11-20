@@ -1,0 +1,122 @@
+/*padrao html para iniciar, DEPOIS A PRIMEIRA DIV foi para colocar o titulo da pag*/
+/*depos abri uma tabela para insesir o que eu queria de informação*/
+/*coloquei as informções que precisava na tabela e o espaço para o usuario inserir as informações*/
+/*fechando a tabela usei o botão para calcular as informções*/
+/*no java a função calcular usamos para o botão saber qual iria calcular*/
+/*a calculadora ira calcular a media do aluno e ver se foi aprovado ou repovado*/
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina de aluno</title>
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+
+</head>
+<body>
+    <div id="cabecalho">
+   
+        <div id="logo">
+            <img src="imagem/logo.png" alt="logo" width="400">
+        </div>
+
+    </div>
+    <br>
+    <div id="text">
+    <h1> NOTAS E FREQUENCIA</h1>
+    </div>
+
+    <br>
+
+    <div>
+    <table>
+        <tr>
+        <th>Aluno</th>
+        <th>Nota A1</th>
+        <th>Nota A2</th>
+        <th>Nota Substitutiva</th>
+        <th>Média</th>
+        <th>Frequencia</th>
+        <th>Resultado</th>
+        </tr>
+
+
+        <tr>
+            <td>Bruna Ferreira</td>
+                <td><input type="number" id="notaa1_bruna" min="0" max="5"></td>
+                <td><input type="number" id="notaa2_bruna" min="0" max="5"></td>
+                <td><input type="number" id="notasubstitutiva_bruna" min="0" max="5"></td>
+                <td id="media_bruna">-</td>
+                <td><input type="number" id="frequencia_bruna" min="0" max="120"></td>
+                <td id="resultado_bruna">-</td>
+        </tr>
+        <tr>
+            <td>Camila Correia Alves</td>
+            <td><input type="number" name="notaa1_camila"  min="0" max="5"></td>
+            <td><input type="number" name="notaa2_camila"  min="0" max="5"></td>
+            <td><input type="number" name="notasubstitutiva_camila"  min="0" max="5"></td>
+            <td id="media_camila">-</td>
+            <td><input type="number" id="frequencia_camila" min="0" max="120"></td>
+            <td id="resultado_camila">-</td>
+        </tr>
+        <tr>
+            <td>Lucas Dias Santos</td>
+            <td><input type="number" name="notaa1_lucas"  min="0" max="5"></td>
+            <td><input type="number" name="notaa2_lucas"  min="0" max="5"></td>
+            <td><input type="number" name="notasubstitutiva_lucas"  min="0" max="5"></td>
+            <td id="media_lucas">-</td>
+            <td><input type="number" id="frequencia_lucas" min="0" max="120"></td>
+            <td id="resultado_lucas">-</td>
+        </tr>
+        <tr>
+            <td>Otávio Oliveira Alves</td>
+            <td><input type="number" name="notaa1_otavio"  min="0" max="5"></td>
+            <td><input type="number" name="notaa2_otavio"  min="0" max="5"></td>
+            <td><input type="number" name="notasubstitutiva_otavio"  min="0" max="5"></td>
+            <td id="media_otavio">-</td>
+            <td><input type="number" id="frequencia_otavio" min="0" max="120"></td>
+            <td id="resultado_otavio">-</td>
+        </tr>
+        <tr>
+            <td>Rebeca Fernandes Cunha</td>
+            <td><input type="number" name="notaa1_rebeca"  min="0" max="5"></td>
+            <td><input type="number" name="notaa2_rebeca"  min="0" max="5"></td>
+            <td><input type="number" name="notasubstitutiva_rebeca" min="0" max="5"></td>
+            <td id="media_rebeca">-</td>
+            <td><input type="number" id="frequencia_rebeca" min="0" max="120"></td>
+            <td id="resultado_rebeca">-</td>
+        </tr>
+    </table>
+    <button id="calcular" onclick="calcular()">Calcular</button>
+    </div>  
+
+    <script>
+        function calcular() {
+            calcularAluno('bruna');
+            calcularAluno('camila');
+            calcularAluno('lucas');
+            calcularAluno('otavio');
+            calcularAluno('rebeca');
+        }
+
+        function calcularAluno(aluno) {
+            var notaA1 = parseFloat(document.getElementById('notaa1_' + aluno).value) || 0;
+            var notaA2 = parseFloat(document.getElementById('notaa2_' + aluno).value) || 0;
+            var notaSubstitutiva = parseFloat(document.getElementById('notasubstitutiva_' + aluno).value) || 0;
+            var frequencia = parseFloat(document.getElementById('frequencia_' + aluno).value) || 0;
+
+            if (notaA1 === 0 || notaA2 === 0 || notaSubstitutiva === 0 || frequencia === 0) {
+                alert('Por favor, preencha todas as notas e frequência para ' + aluno + '.');
+                return;
+            }
+
+            var media = (notaA1 + notaA2 + notaSubstitutiva) / 3;
+            var resultado = (media >= 5 && frequencia >= 75) ? 'Aprovado' : 'Reprovado';
+
+            document.getElementById('media_' + aluno).innerText = media.toFixed(2);
+            document.getElementById('resultado_' + aluno).innerText = resultado;
+        }
+    </script>
+</body>
+</html>
